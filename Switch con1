@@ -1,0 +1,35 @@
+(Basis configuratie)
+-----------------------
+enable
+config terminal
+hostname Batman<^/|\^>
+banner motd "ONLY ADMINISTRATOR!"
+enable password cisco
+enable secret class
+line con 0
+Service password-encryption
+password cisco
+login local
+line vty 0 15
+password cisco
+login local
+------------------------
+(Vlan's maken)
+-----------------------
+vlan 99
+name Managment
+vlan 2
+name servers
+vlan 13
+name clients
+interface vlan 99
+ip address 10.10.99.3 255.255.255.240
+ip default-gateway 10.10.99.14 255.255.255.240
+-----------------------------------------------------
+SSH version 2
+-----------------------------------------------------
+no ip domain-lookup
+ip domain-name cisco.com
+ip ssh version 2
+crypto key generate rsa
+1024
